@@ -1,0 +1,2213 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/ontologies/video-game-ontology/"
+     xml:base="http://example.org/ontologies/video-game-ontology/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:Helldivers="https://dbpedia.org/page/Helldivers#"
+     xmlns:video-game-ontology="http://example.org/ontologies/video-game-ontology#">
+    <owl:Ontology rdf:about="http://example.org/ontologies/video-game-ontology">
+        <owl:imports rdf:resource="http://dbpedia.org/ontology/"/>
+        <rdfs:comment>This is a video game ontology that models all relevant aspects of video games.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#availableOn -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#availableOn">
+        <owl:inverseOf rdf:resource="http://example.org/ontologies/video-game-ontology#hasGames"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Platform"/>
+        <rdfs:comment>Platforms a game supports</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#competesIn -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#competesIn">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsPlayer"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Competition"/>
+        <rdfs:comment>Game an esports player competes in</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#developedBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#developedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <rdfs:comment>Developer of the game</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#directedBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#directedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <rdfs:comment>Director of a game</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#distributedBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#distributedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Distributor"/>
+        <rdfs:comment>Distributor of game</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#hasGamemode -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#hasGamemode">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Gamemode"/>
+        <rdfs:comment>Links game to gamemode</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#hasGames -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#hasGames">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Platform"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:comment>Entity has games associated with it</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#hasGenre -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#hasGenre">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Games genre</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#hasPerspective -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#hasPerspective">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Perspective"/>
+        <rdfs:comment>Player perspective in game</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#inFranchise -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#inFranchise">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Franchise"/>
+        <rdfs:comment>Links game to franchise</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#memberOf -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#memberOf">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsPlayer"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsTeam"/>
+        <rdfs:comment>Team esports players are a part of</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#prequelOf -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#prequelOf">
+        <owl:inverseOf rdf:resource="http://example.org/ontologies/video-game-ontology#sequelOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:comment>Game is prequel of another game</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#sequelOf -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#sequelOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:comment>Game is sequel of another game</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#similarTo -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#similarTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:comment>Links similar games</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://example.org/ontologies/video-game-ontology#similarTo"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+        <owl:annotatedTarget rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:comment>Symmetric</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#streamsGame -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#streamsGame">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Streamer"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:comment>What game a streamer has streamed</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#winsAward -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontologies/video-game-ontology#winsAward">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#AwardGroup"/>
+        <rdfs:comment>Links game to awards won</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://dbpedia.org/page/Helldivers#basedOnGame -->
+
+    <owl:ObjectProperty rdf:about="https://dbpedia.org/page/Helldivers#basedOnGame">
+        <owl:inverseOf rdf:resource="https://dbpedia.org/page/Helldivers#hasMediaAdaptation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://dbpedia.org/page/Arcane_(TV_series)#Media"/>
+        <rdfs:comment>Media is based on a game</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://dbpedia.org/page/Helldivers#hasCompetition -->
+
+    <owl:ObjectProperty rdf:about="https://dbpedia.org/page/Helldivers#hasCompetition">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://example.org/ontologies/video-game-ontology#Competition"/>
+        <rdfs:comment>Video game has competitions</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://dbpedia.org/page/Helldivers#hasMediaAdaptation -->
+
+    <owl:ObjectProperty rdf:about="https://dbpedia.org/page/Helldivers#hasMediaAdaptation">
+        <rdfs:range rdf:resource="https://dbpedia.org/page/Arcane_(TV_series)#Media"/>
+        <rdfs:comment>Has a film or show based off of it</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#actorName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#actorName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VoiceActor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of voice actor</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#ageRating -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#ageRating">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#awardName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#awardName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#AwardGroup"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Award game has won</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#characterName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#characterName">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of video game character</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#competitionName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#competitionName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Competition"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of Competition for video games</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#cosplayerName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#cosplayerName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Cosplayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Cosplayer Name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#description -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#description">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Describes game story</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#developerName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#developerName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of developer</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#directorName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#directorName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of games director</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#distributorName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#distributorName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Distributor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Distributor name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#franchiseName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#franchiseName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Franchise"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of video game franchise</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#gameImage -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#gameImage">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#gameTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#gameTitle">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of the game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#gameTrailer -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#gameTrailer">
+        <rdfs:comment>Trailer advertising the game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#gamerName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#gamerName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Gamer name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#highRAM -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#highRAM">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>High-End RAM specifications to run a game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#highStorage -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#highStorage">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>High-End Storage Specifications to run a game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#language -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#language">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Language game is in</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#numberOfPlayers -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#numberOfPlayers">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#playerRank -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#playerRank">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Global rank a player has in their video game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#playerRating -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#playerRating">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Rating players have given based on how much they enjoy the game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#price -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#price">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#recRAM -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#recRAM">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Recommended RAM to run a game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#recStorage -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#recStorage">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Recommended Storage to run a game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#region -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#region">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Region game can be played in</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#releaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#releaseDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Release Date of Game</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#streamerName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#streamerName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#Streamer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of streamer</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#teamName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontologies/video-game-ontology#teamName">
+        <rdfs:domain rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsTeam"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Esports team name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#AwardGroup -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#AwardGroup">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Organisation"/>
+        <rdfs:comment>Organisation which gives awards to video games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Competition -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Competition">
+        <rdfs:comment>Video Game Competition where esports players compete in various games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Cosplayer -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Cosplayer">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Person"/>
+        <rdfs:comment>A user who recreates characters from games in real life</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Critic -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Critic">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Person"/>
+        <rdfs:comment>Reviewer who assesses games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Developer -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Developer">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Organisation"/>
+        <rdfs:comment>An individual developing video games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Director -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Director">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Person"/>
+        <rdfs:comment>Manages game development</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Distributor -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Distributor">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Organisation"/>
+        <rdfs:comment>Platform or store distributing games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#EarlyAccess -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#EarlyAccess">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/ontologies/video-game-ontology#releaseDate"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-04-04T00:00:00</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#ReleaseStatus"/>
+        <rdfs:comment>In-development titles released early to payable players</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#EsportsPlayer -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#EsportsPlayer">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Gamer"/>
+        <rdfs:comment>A gamer who competes professionally</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#EsportsTeam -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#EsportsTeam">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Organisation"/>
+        <rdfs:comment>Group of esports players who compete under one team</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Franchise -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Franchise">
+        <rdfs:comment>Series of related games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Gamemode -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Gamemode">
+        <rdfs:comment>Game types that change the objective and number of people playing</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Gamer -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Gamer">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Player"/>
+        <rdfs:comment>A casual user who plays video games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Genre -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Genre">
+        <rdfs:comment>Categories that describe overall game</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Journalist -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Journalist">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Person"/>
+        <rdfs:comment>Games media reporting on games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Mobile -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Mobile">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Nintendo -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Nintendo">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Platform"/>
+        <rdfs:comment>Family of japanese systems</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Organisation -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Organisation">
+        <rdfs:comment>Organisation or company that works with video games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PC -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#PC">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Person -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Person">
+        <owl:disjointWith rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <rdfs:comment>Individual with relationship to video games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Perspective -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Perspective">
+        <rdfs:comment>User perspective in game</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Platform -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Platform">
+        <rdfs:comment>Device used to play game</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PlayStation -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#PlayStation">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Platform"/>
+        <rdfs:comment>Family of consoles made by Sony</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Player -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Player">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Person"/>
+        <rdfs:comment>Person who plays video games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#ReleaseStatus -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#ReleaseStatus">
+        <rdfs:comment>Current status of game in development cycle</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Released -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Released">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/ontologies/video-game-ontology#releaseDate"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#ReleaseStatus"/>
+        <rdfs:comment>Fully released games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Streamer -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#Streamer">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Player"/>
+        <rdfs:comment>A content creator who streams video games professionally</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#VideoGame -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#VideoGame">
+        <rdfs:comment>A game that is played virtually</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#VoiceActor -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#VoiceActor">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Person"/>
+        <rdfs:comment>Individual who voices characters in games</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#XBox -->
+
+    <owl:Class rdf:about="http://example.org/ontologies/video-game-ontology#XBox">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontologies/video-game-ontology#Platform"/>
+        <rdfs:comment>Family of consoles made by Microsoft</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://dbpedia.org/page/Arcane_(TV_series)#Media -->
+
+    <owl:Class rdf:about="https://dbpedia.org/page/Arcane_(TV_series)#Media">
+        <rdfs:comment>Screen media</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://dbpedia.org/page/Arcane_(TV_series)#TVShow -->
+
+    <owl:Class rdf:about="https://dbpedia.org/page/Arcane_(TV_series)#TVShow">
+        <rdfs:subClassOf rdf:resource="https://dbpedia.org/page/Arcane_(TV_series)#Media"/>
+        <rdfs:comment>Series of Episodes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s(Film)#Film -->
+
+    <owl:Class rdf:about="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s(Film)#Film">
+        <rdfs:subClassOf rdf:resource="https://dbpedia.org/page/Arcane_(TV_series)#Media"/>
+        <rdfs:comment>Film media</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Action -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Action">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>High-energy media</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Adventure -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Adventure">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Narratives focused on exploration</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Android -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Android">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Mobile"/>
+        <rdfs:comment>Android mobile product</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Anime -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Anime">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Japanese cartoon media</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#ArrowheadGameStudios -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#ArrowheadGameStudios">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <rdfs:comment>Swedish video game developers</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#BaldursGate3 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#BaldursGate3">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <owl:differentFrom rdf:resource="http://example.org/ontologies/video-game-ontology#BaldursGateFranchise"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation5"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxSeriesS"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#LarianStudios"/>
+        <video-game-ontology:directedBy rdf:resource="http://example.org/ontologies/video-game-ontology#SwenVincke"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Adventure"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Strategy"/>
+        <video-game-ontology:hasPerspective rdf:resource="http://example.org/ontologies/video-game-ontology#TopDown"/>
+        <video-game-ontology:inFranchise rdf:resource="http://example.org/ontologies/video-game-ontology#BaldursGateFranchise"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>Gather your party, and return to the Forgotten Realms in a tale of fellowship and betrayal, sacrifice and survival, and the lure of absolute power.
+
+Mysterious abilities are awakening inside you, drawn from a Mind Flayer parasite planted in your brain. Resist, and turn darkness against itself. Or embrace corruption, and become ultimate evil.
+
+From the creators of Divinity: Original Sin 2 comes a next-generation RPG, set in the world of Dungeons and Dragons.
+
+Choose from a wide selection of D&amp;D races and classes, or play as an origin character with a hand-crafted background. Adventure, loot, battle and romance as you journey through the Forgotten Realms and beyond. Play alone, and select your companions carefully, or as a party of up to four in multiplayer.
+
+Abducted, infected, lost. You are turning into a monster, but as the corruption inside you grows, so does your power. That power may help you to survive, but there will be a price to pay, and more than any ability, the bonds of trust that you build within your party could be your greatest strength. Caught in a conflict between devils, deities, and sinister otherworldly forces, you will determine the fate of the Forgotten Realms together.
+
+Forged with the new Divinity 4.0 engine, Baldur’s Gate 3 gives you unprecedented freedom to explore, experiment, and interact with a world that reacts to your choices. A grand, cinematic narrative brings you closer to your characters than ever before, as you venture through our biggest world yet.
+
+The Forgotten Realms are a vast, detailed and diverse world, and there are secrets to be discovered all around you -- verticality is a vital part of exploration. Sneak, dip, shove, climb, and jump as you journey from the depths of the Underdark to the glittering rooftops of the Upper City. How you survive, and the mark you leave on the world, is up to you.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Baldurs Gate 3</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=XuCfkgaaa08</video-game-ontology:gameTrailer>
+        <video-game-ontology:highRAM rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</video-game-ontology:highRAM>
+        <video-game-ontology:highStorage rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150</video-game-ontology:highStorage>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:language>Spanish</video-game-ontology:language>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">49.99</video-game-ontology:price>
+        <video-game-ontology:recRAM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8</video-game-ontology:recRAM>
+        <video-game-ontology:recStorage rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150</video-game-ontology:recStorage>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-04-03T00:00:00Z</video-game-ontology:releaseDate>
+        <rdfs:comment>DnD inspired role playing game</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#BaldursGateFranchise -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#BaldursGateFranchise">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Franchise"/>
+        <video-game-ontology:franchiseName>Baldurs Gate</video-game-ontology:franchiseName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#BehaviourInteractive -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#BehaviourInteractive">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <rdfs:comment>Canadian independent game developer</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Building -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Building">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Building genre focused on the construction of structures</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Casual -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Casual">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media for mass-market audience</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Comedy -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Comedy">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media to provoke laughter</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#DS -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#DS">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Nintendo"/>
+        <rdfs:comment>Foldable handheld game console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#DeadByDaylight -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#DeadByDaylight">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <owl:sameAs rdf:resource="https://dbpedia.org/page/Dead_by_Daylight#DBDeadByDaylight"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#NintendoSwitch"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation4"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation5"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxOne"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxSeriesS"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#BehaviourInteractive"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Horror"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18</video-game-ontology:ageRating>
+        <video-game-ontology:description>This asymmetric multiplayer horror game in which one of the players tries on the role of a brutal killer, while the other four try to escape. Survivors play with a third person perspective, and the killer uses the first-person camera. The game has no singleplayer.
+
+Players can choose from 13 survivors and 12 killers. Each of them differs from each other with own upgrades system and special actions. There is no need to be polite and cooperative - every player for himself. Each level is procedurally generated, and each new round is offering a unique experience. The game engine selects from 10 presets,
+
+The plot of the game tells a story about the supernatural being of The Entity, who created the world and populated it with serial killers. To save players have to perform a number of tasks, which include the repair of generators and other interactions with the items on the map. All actions with objects launch the so-called Skill Check - RNG that decides whether or not the action will be successful.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://m.media-amazon.com/images/M/MV5BZTQ3OWJiYjQtOGYzNC00MGIyLWJhZmMtZjNjYWM5YWVkMmU2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>DBD</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTitle>Dead By Daylight</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=JGhIXLO3ul8</video-game-ontology:gameTrailer>
+        <video-game-ontology:highRAM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8</video-game-ontology:highRAM>
+        <video-game-ontology:highStorage rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15</video-game-ontology:highStorage>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:language>French</video-game-ontology:language>
+        <video-game-ontology:language>Italian</video-game-ontology:language>
+        <video-game-ontology:language>Spanish</video-game-ontology:language>
+        <video-game-ontology:playerRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72</video-game-ontology:playerRating>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.99</video-game-ontology:price>
+        <video-game-ontology:recRAM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8</video-game-ontology:recRAM>
+        <video-game-ontology:recStorage rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15</video-game-ontology:recStorage>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2016-06-14T00:00:00Z</video-game-ontology:releaseDate>
+        <rdfs:comment>Online Multiplayer Horror Game with shared objectives</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Dead_by_Daylight#DBDeadByDaylight -->
+
+    <rdf:Description rdf:about="https://dbpedia.org/page/Dead_by_Daylight#DBDeadByDaylight"/>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Deadlock -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Deadlock">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Valve"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Indie"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <video-game-ontology:hasPerspective rdf:resource="http://example.org/ontologies/video-game-ontology#ThirdPersonPerspective"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12</video-game-ontology:ageRating>
+        <video-game-ontology:description>Deadlock is a multiplayer game in early development.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Deadlock_box_art_cover%2C_%27Old_Gods%2C_New_Blood%27_update.jpg/250px-Deadlock_box_art_cover%2C_%27Old_Gods%2C_New_Blood%27_update.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Deadlock</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=ZdlOy1gbgHk</video-game-ontology:gameTrailer>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-06-14T00:00:00Z</video-game-ontology:releaseDate>
+        <rdfs:comment>6v6 objective based shooter</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#DeathBySandwich -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#DeathBySandwich">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Cosplayer"/>
+        <video-game-ontology:cosplayerName>Death By Sandwich</video-game-ontology:cosplayerName>
+        <rdfs:comment>Small Cosplayer</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Education -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Education">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media focused on teaching or reinforcing skills</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Fantasy -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Fantasy">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Fictional media focused on mythical creatures and worlds</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#FirstPersonPerspective -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#FirstPersonPerspective">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Perspective"/>
+        <rdfs:comment>Player perspective is within characters view</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#FiveNightsAtFreddys -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#FiveNightsAtFreddys">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <owl:sameAs rdf:resource="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#DBFiveNightsAtFreddys"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Scottgames"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Horror"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Survival"/>
+        <video-game-ontology:inFranchise rdf:resource="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#FiveNightsAtFreddysFranchise"/>
+        <video-game-ontology:prequelOf rdf:resource="http://example.org/ontologies/video-game-ontology#FiveNightsAtFreddys2"/>
+        <Helldivers:hasMediaAdaptation rdf:resource="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s(Film)#FiveNightsAtFreddysFilm"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13</video-game-ontology:ageRating>
+        <video-game-ontology:description>From your small office you must watch the security cameras carefully. You have a very limited amount of electricity that you&apos;re allowed to use per night (corporate budget cuts, you know). That means when you run out of power for the night- no more security doors and no more lights! If something isn&apos;t right- namely if Freddybear or his friends aren&apos;t in their proper places, you must find them on the monitors and protect yourself if needed!</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://static.wikia.nocookie.net/venturiantale/images/d/d6/D89b9f4666be2a25d02a91d4cab8c639.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>FNAF</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTitle>Five Nights at Freddys</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=RP4UTOek0-Y</video-game-ontology:gameTrailer>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</video-game-ontology:price>
+        <video-game-ontology:recRAM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</video-game-ontology:recRAM>
+        <video-game-ontology:recStorage rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</video-game-ontology:recStorage>
+        <rdfs:comment>Point and click horror game</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#DBFiveNightsAtFreddys -->
+
+    <rdf:Description rdf:about="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#DBFiveNightsAtFreddys"/>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#FiveNightsAtFreddys2 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#FiveNightsAtFreddys2">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:inFranchise rdf:resource="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#FiveNightsAtFreddysFranchise"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Scottgames"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Horror"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Survival"/>
+        <video-game-ontology:sequelOf rdf:resource="http://example.org/ontologies/video-game-ontology#FiveNightsAtFreddys"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13</video-game-ontology:ageRating>
+        <video-game-ontology:description>Welcome, Jeremy Fitzgerald, to your new summer job at the new and improved Freddy Fazbear&apos;s Pizza! Mike Schmidt requested to be moved to the day shift. He said something about the animatronic characters walking about and threatening him. Now, you may have heard some negative things about Freddy&apos;s but don&apos;t you worry! The building has been redesigned, the old characters have been given new software and there are all new characters so everything should be just fine!</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://m.media-amazon.com/images/M/MV5BNmM2MjIxYmItMDdhMC00ZjRkLTg0MDYtMzgzZjY5YzlmMTc0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Five Nights At Freddys 2</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=lVPONdZBh6s</video-game-ontology:gameTrailer>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</video-game-ontology:price>
+        <rdfs:comment>Sequel to Five Nights At Freddys</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#GameFreak -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#GameFreak">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <rdfs:comment>Japanese video game developer best knwon as the co-owners of Pokemon</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Helldivers -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Helldivers">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <owl:sameAs rdf:resource="https://dbpedia.org/page/Helldivers#DBHelldivers"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation3"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation4"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#ArrowheadGameStudios"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#SciFi"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <video-game-ontology:prequelOf rdf:resource="http://example.org/ontologies/video-game-ontology#HelldiversII"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#HelldiversII"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>HELLDIVERS is a top-down shooter where you need to complete procedurally generated missions among the endless amount of enemies. While the game has a single-player mode, the gameplay is more suitable for a co-op playthrough. Unlike in many shooters, in HELLDIVERS you must avoid friendly fire as you can hurt your teammates. Another feature is that you can decide for yourself where to drop, which vehicles to use and choose the order of the objectives to complete.
+The story is set on Super Earth where the government brainwashes people to make them more loyal. While the planet is surrounded by enemy creatures that intend to destroy it, you play as a soldier of a HELLDIVERS unite who needs to protect Super Earth. As a rule, the missions include forcing through an enemy base, capturing required objectives and escape. There&apos;s no need to kill all the enemies as they are endless; instead, you can try to complete the mission stealthier. Before the mission, you can choose weapons from a variety of equipment and also get support firepower during the battle.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://m.media-amazon.com/images/M/MV5BYmU5ZmE3ODUtNGI0NS00MGYxLWE1NmUtMDgyMDM4NGM2OTA2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Helldivers</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=pyamRHYQXig</video-game-ontology:gameTrailer>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:language>French</video-game-ontology:language>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-12-07T00:00:00Z</video-game-ontology:releaseDate>
+        <rdfs:comment>Top Down Shooter where you complete procedurally generated missions against enemies</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Helldivers#DBHelldivers -->
+
+    <rdf:Description rdf:about="https://dbpedia.org/page/Helldivers#DBHelldivers"/>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#HelldiversII -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#HelldiversII">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation5"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxSeriesS"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#ArrowheadGameStudios"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#SciFi"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <video-game-ontology:sequelOf rdf:resource="http://example.org/ontologies/video-game-ontology#Helldivers"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#Helldivers"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>Freedom. Peace. Democracy.
+Your Super Earth-born rights. The key pillars of our civilization.
+Of our very existence.
+But the war rages on. And everything is once again under threat.
+Join the greatest military force the galaxy has ever seen and make this a safe and free place to live.
+
+You will be assembled into squads of up to four Helldivers and assigned strategic missions.
+Watch each other’s back – friendly fire is an unfortunate certainty of war, but victory without teamwork is impossible.
+
+Rain down freedom from above, sneak through enemy territory, or grit your teeth and charge head-first into the jaws of combat.
+How you deliver liberty is your choice; you’ll have access to a wide array of explosive firepower, life-saving armor and battle-changing stratagems… the jewel in every Helldiver’s arsenal.
+
+Super Earth recognises your hard work with valuable Requisition. Use it to access different rewards that benefit you, your squad, your destroyer ship and our overall war effort.
+
+Everything on every planet wants you dead. That’s what we’re dealing with.
+Each enemy has distinct and unpredictable characteristics, tactics, and behavior – but they all fight ferociously and without fear or morality.
+
+Capturing enemy planets, defending against invasions, and completing missions will contribute to our overall effort.
+This war will be won or lost depending on the actions of everyone involved.
+We stand together, or we fall apart.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://m.media-amazon.com/images/M/MV5BN2IyY2VjMDctNGMzYS00ZWEwLTkyNTgtNTdkNDQ3MzA0MDhmXkEyXkFqcGc@._V1_.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Helldivers 2</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTitle>Helldivers II</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=Ahx35iVJn10</video-game-ontology:gameTrailer>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:language>French</video-game-ontology:language>
+        <video-game-ontology:language>Italian</video-game-ontology:language>
+        <video-game-ontology:language>Spanish</video-game-ontology:language>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">34.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2024-02-08T00:00:00Z</video-game-ontology:releaseDate>
+        <rdfs:comment>Action Shooter game where you defeat aliens to keep super earth safe</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Horror -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Horror">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media that elicits fear</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Indie -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Indie">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media from independent studios</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#LarianStudios -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#LarianStudios">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>Larian Studios</video-game-ontology:developerName>
+        <rdfs:comment>Belgium Indie RPG Developers</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Multiplayer -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Multiplayer">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Gamemode"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#NintendoSwitch -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#NintendoSwitch">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Nintendo"/>
+        <rdfs:comment>Hybrid video game console made by Nintendo</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PC -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#PC">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Platformer -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Platformer">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media that focuses on world with obstacles</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PlayStation2 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#PlayStation2">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation"/>
+        <rdfs:comment>Second generation PlayStation Console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PlayStation3 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#PlayStation3">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation"/>
+        <rdfs:comment>Third generation playstation console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PlayStation4 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#PlayStation4">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation"/>
+        <rdfs:comment>Fourth generation PlayStation console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PlayStation5 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#PlayStation5">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation"/>
+        <rdfs:comment>Fifth generation PlayStation console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PlayStationOne -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#PlayStationOne">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation"/>
+        <rdfs:comment>Original PlayStation console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Pokemon -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Pokemon">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Franchise"/>
+        <owl:sameAs rdf:resource="https://dbpedia.org/page/Pok%C3%A9mon#DBPokemon"/>
+        <rdfs:comment>Japanese media franchise about creatures with special powers called Pokemon</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Pok%C3%A9mon#DBPokemon -->
+
+    <rdf:Description rdf:about="https://dbpedia.org/page/Pok%C3%A9mon#DBPokemon"/>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#PokemonAlphaSapphireOmegaRuby -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#PokemonAlphaSapphireOmegaRuby">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#3DS"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#GameFreak"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:inFranchise rdf:resource="http://example.org/ontologies/video-game-ontology#Pokemon"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</video-game-ontology:ageRating>
+        <video-game-ontology:description>Pokémon Omega Ruby and Pokémon Alpha Sapphire will take players on a
+journey like no other as they collect, battle and trade Pokémon while
+trying to stop a shadowy group with plans to alter the Hoenn region
+forever.
+
+Embark on a new adventure through the Hoenn region, an area rich in
+natural beauty, that contains a cave that shows a scene described in
+legends.
+
+Experience the awe of Primal Reversion, a new, extremely powerful
+transformation undergone by Legendary Pokémon Groudon and Kyogre.
+
+Get even closer to solving the mysteries of Mega Evolution as more
+Pokémon gain this powerful ability.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://pics.filmaffinity.com/Pokaemon_Omega_Ruby_and_Alpha_Sapphire-440224203-large.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Pokemon Alpha Sapphire/Omega Ruby</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTitle>Pokemon ORAS</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=MjRztI8yGdQ</video-game-ontology:gameTrailer>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:language>Japanese</video-game-ontology:language>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2014-11-21T00:00:00Z</video-game-ontology:releaseDate>
+        <rdfs:comment>Enhanced 3D remake of Pokemon Sapphire and Ruby</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Puzzle -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Puzzle">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media focused on problem solving</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#RPG -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#RPG">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Role Playing Games</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#RiotGames -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#RiotGames">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <rdfs:comment>Major American video game developer</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Romance -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Romance">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media focused on the development of relationships</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#SciFi -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#SciFi">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Science Fiction media, normally futuristic</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Scottgames -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Scottgames">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <rdfs:comment>Indie Horror game developer</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Scout -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Scout">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsPlayer"/>
+        <video-game-ontology:competesIn rdf:resource="http://example.org/ontologies/video-game-ontology#Deadlock"/>
+        <video-game-ontology:memberOf rdf:resource="https://dbpedia.org/page/Arcane_(TV_series)#MeleeCreeps"/>
+        <rdfs:comment>American Deadlock esports player</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Shooter -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Shooter">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Simulation -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Simulation">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media that mimics real world systems</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Singleplayer -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Singleplayer">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Gamemode"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Sports -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Sports">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media that simulates real world sports and/or its teams</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Steam -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Steam">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Distributor"/>
+        <rdfs:comment>Digital distribution service developed by Valve</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Strategy -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Strategy">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media that emphasises strategic planning</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Survival -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Survival">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>Media that is set in a hostile environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#SwenVincke -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#SwenVincke">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <rdfs:comment>Founder of Larian Studios</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#TenZ -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#TenZ">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsPlayer"/>
+        <video-game-ontology:competesIn rdf:resource="https://dbpedia.org/page/Helldivers#LeagueChampionship"/>
+        <video-game-ontology:competesIn rdf:resource="https://dbpedia.org/page/Helldivers#VCT"/>
+        <video-game-ontology:memberOf rdf:resource="https://dbpedia.org/page/Arcane_(TV_series)#Cloud9"/>
+        <video-game-ontology:streamsGame rdf:resource="http://example.org/ontologies/video-game-ontology#Valorant"/>
+        <rdfs:comment>Former League of Legends and Valorant esports player</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#ThirdPersonPerspective -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#ThirdPersonPerspective">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Perspective"/>
+        <rdfs:comment>Perspective is behind playable character</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#TopDown -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#TopDown">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Perspective"/>
+        <rdfs:comment>Eagle eye perspective</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Valorant -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Valorant">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <owl:sameAs rdf:resource="https://dbpedia.org/page/Valorant#DBValorant"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#RiotGames"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <Helldivers:hasCompetition rdf:resource="https://dbpedia.org/page/Helldivers#VCT"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13</video-game-ontology:ageRating>
+        <video-game-ontology:description>Valorant is a character-based 5v5 tactical shooter set on the global stage. Outwit, outplay, and outshine your competition with tactical abilities, precise gunplay, and adaptive teamwork.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://i.pinimg.com/736x/79/aa/f7/79aaf76e647b1eac1329b41a661ab60d.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Valorant</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=lWr6dhTcu-E</video-game-ontology:gameTrailer>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:language>Spanish</video-game-ontology:language>
+        <video-game-ontology:playerRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.2</video-game-ontology:playerRating>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-10-14T00:00:00Z</video-game-ontology:releaseDate>
+        <rdfs:comment>5v5 first person shooter game</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Valorant#DBValorant -->
+
+    <rdf:Description rdf:about="https://dbpedia.org/page/Valorant#DBValorant"/>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Valve -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Valve">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#VisualNovel -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#VisualNovel">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Genre"/>
+        <rdfs:comment>2D interative fiction</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Wii -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Wii">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Nintendo"/>
+        <rdfs:comment>Nintendo home console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#WiiU -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#WiiU">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Nintendo"/>
+        <rdfs:comment>Nintendo home console, successor to the wii</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#Xbox360 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Xbox360">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#XBox"/>
+        <rdfs:comment>Second generation microsoft game console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#XboxOne -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#XboxOne">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#XBox"/>
+        <rdfs:comment>All in One microsoft home console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#XboxSeriesS -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#XboxSeriesS">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#XBox"/>
+        <rdfs:comment>Fourth generation Microsoft home console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#iOS -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#iOS">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Mobile"/>
+        <rdfs:comment>Apple mobile product</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontologies/video-game-ontology#3DS -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#3DS">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Nintendo"/>
+        <rdfs:comment>Foldable dual-screen handheld nintendo console</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Arcane_(TV_series)#Cloud9 -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Arcane_(TV_series)#Cloud9">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsTeam"/>
+        <rdfs:comment>American Esports Team</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Arcane_(TV_series)#DBArcane -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Arcane_(TV_series)#DBArcane">
+        <rdf:type rdf:resource="https://dbpedia.org/page/Arcane_(TV_series)#TVShow"/>
+        <rdfs:comment>League of Legends Adaptation</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Arcane_(TV_series)#MeleeCreeps -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Arcane_(TV_series)#MeleeCreeps">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#EsportsTeam"/>
+        <rdfs:comment>Professional Deadlock team</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Dead_by_Daylight#DBDeadByDaylight -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Dead_by_Daylight#DBDeadByDaylight"/>
+    
+
+
+    <!-- https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#DBFiveNightsAtFreddys -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#DBFiveNightsAtFreddys"/>
+    
+
+
+    <!-- https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#FiveNightsAtFreddysFranchise -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s#FiveNightsAtFreddysFranchise">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Franchise"/>
+        <video-game-ontology:franchiseName>Five Nights at Freddy&apos;s</video-game-ontology:franchiseName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s(Film)#FiveNightsAtFreddysFilm -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s(Film)#FiveNightsAtFreddysFilm">
+        <rdf:type rdf:resource="https://dbpedia.org/page/Five_Nights_at_Freddy&apos;s(Film)#Film"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Helldivers#DBHelldivers -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Helldivers#DBHelldivers"/>
+    
+
+
+    <!-- https://dbpedia.org/page/Helldivers#LeagueChampionship -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Helldivers#LeagueChampionship">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Competition"/>
+        <rdfs:comment>Tier 1 League Tournament</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Helldivers#LeagueOfLegends -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Helldivers#LeagueOfLegends">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#Android"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#iOS"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#RiotGames"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#RiotGames"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:hasPerspective rdf:resource="http://example.org/ontologies/video-game-ontology#TopDown"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#Deadlock"/>
+        <Helldivers:hasCompetition rdf:resource="https://dbpedia.org/page/Helldivers#LeagueChampionship"/>
+        <Helldivers:hasMediaAdaptation rdf:resource="https://dbpedia.org/page/Arcane_(TV_series)#DBArcane"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12</video-game-ontology:ageRating>
+        <video-game-ontology:description>League of Legends is a fast-paced, competitive online game that blends the speed and intensity of an RTS with RPG elements. Two teams of powerful champions, each with a unique design and playstyle, battle head-to-head across multiple battlefields and game modes. With an ever-expanding roster of champions, frequent updates and a thriving tournament scene, League of Legends offers endless replayability for players of every skill level.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.dexerto.com/cdn-image/wp-content/uploads/2020/10/New-League-of-Legends-champion-Seraphine-revealed-Abilities-splash-art.jpg?width=1200&amp;quality=60&amp;format=auto</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>League of Legends</video-game-ontology:gameTitle>
+        <video-game-ontology:gameTrailer rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.youtube.com/watch?v=BEbPi89HZ0I</video-game-ontology:gameTrailer>
+        <video-game-ontology:highRAM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15</video-game-ontology:highRAM>
+        <video-game-ontology:highStorage rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25</video-game-ontology:highStorage>
+        <video-game-ontology:language>English</video-game-ontology:language>
+        <video-game-ontology:playerRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">72</video-game-ontology:playerRating>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</video-game-ontology:price>
+        <video-game-ontology:recRAM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</video-game-ontology:recRAM>
+        <video-game-ontology:recStorage rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25</video-game-ontology:recStorage>
+        <rdfs:comment>Multiplayer online battle arena</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Helldivers#VCT -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Helldivers#VCT">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Competition"/>
+        <rdfs:comment>American Valorant Tournament</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://dbpedia.org/page/Pok%C3%A9mon#DBPokemon -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Pok%C3%A9mon#DBPokemon"/>
+    
+
+
+    <!-- https://dbpedia.org/page/Valorant#DBValorant -->
+
+    <owl:NamedIndividual rdf:about="https://dbpedia.org/page/Valorant#DBValorant"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://example.org/ontologies/video-game-ontology#PC">
+        <rdfs:comment>Home Device</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:comment>Links game to alternative or shorthand version of its name</rdfs:comment>
+    </rdf:Description>
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#FromSoftware">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>FromSoftware</video-game-ontology:developerName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#SupergiantGames">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>Supergiant Games</video-game-ontology:developerName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#TeamCherry">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>Team Cherry</video-game-ontology:developerName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#MaddyMakesGames">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>Maddy Makes Games</video-game-ontology:developerName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#ConcernedApe">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>ConcernedApe</video-game-ontology:developerName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#IdSoftware">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>id Software</video-game-ontology:developerName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#CDProjektRed">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>CD PROJEKT RED</video-game-ontology:developerName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#ZAUM">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Developer"/>
+        <video-game-ontology:developerName>ZA/UM</video-game-ontology:developerName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#HidetakaMiyazaki">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <video-game-ontology:directorName>Hidetaka Miyazaki</video-game-ontology:directorName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#GregKasavin">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <video-game-ontology:directorName>Greg Kasavin</video-game-ontology:directorName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#MaddyThorson">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <video-game-ontology:directorName>Maddy Thorson</video-game-ontology:directorName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#EricBarone">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <video-game-ontology:directorName>Eric Barone</video-game-ontology:directorName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#HugoMartin">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <video-game-ontology:directorName>Hugo Martin</video-game-ontology:directorName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#KonradTomaszkiewicz">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Director"/>
+        <video-game-ontology:directorName>Konrad Tomaszkiewicz</video-game-ontology:directorName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#PortalFranchise">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Franchise"/>
+        <video-game-ontology:franchiseName>Portal</video-game-ontology:franchiseName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#HalfLifeFranchise">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Franchise"/>
+        <video-game-ontology:franchiseName>Half-Life</video-game-ontology:franchiseName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#DoomFranchise">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#Franchise"/>
+        <video-game-ontology:franchiseName>Doom</video-game-ontology:franchiseName>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#EldenRing">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#FromSoftware"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Fantasy"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation5"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxSeriesS"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:directedBy rdf:resource="http://example.org/ontologies/video-game-ontology#HidetakaMiyazaki"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#DarkSoulsIII"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>An open-world action RPG set in the Lands Between, where a Tarnished warrior seeks the Elden Ring.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Elden Ring</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">59.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-02-25T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#DarkSoulsIII">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#FromSoftware"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Fantasy"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation4"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxOne"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>A punishing dark-fantasy action RPG about a dying world and the Ashen One who must rekindle its flame.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/374320/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Dark Souls III</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">59.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-04-12T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Hades">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#SupergiantGames"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Indie"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#NintendoSwitch"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation5"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:directedBy rdf:resource="http://example.org/ontologies/video-game-ontology#GregKasavin"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#HollowKnight"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13</video-game-ontology:ageRating>
+        <video-game-ontology:description>A rogue-like dungeon crawler where you fight out of the Underworld as the immortal Prince Zagreus.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Hades</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-17T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#HollowKnight">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#TeamCherry"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Platformer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Adventure"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Indie"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#NintendoSwitch"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#Celeste"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</video-game-ontology:ageRating>
+        <video-game-ontology:description>A hand-drawn action adventure through a vast, ruined insect kingdom of Hallownest.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/367520/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Hollow Knight</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">14.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-24T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Celeste">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#MaddyMakesGames"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Platformer"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Indie"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#NintendoSwitch"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:directedBy rdf:resource="http://example.org/ontologies/video-game-ontology#MaddyThorson"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</video-game-ontology:ageRating>
+        <video-game-ontology:description>A precision platformer about climbing Celeste Mountain, with a heartfelt story about anxiety and self-acceptance.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/504230/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Celeste</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">19.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-01-25T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#StardewValley">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#ConcernedApe"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Simulation"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Indie"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#NintendoSwitch"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#iOS"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#Android"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:directedBy rdf:resource="http://example.org/ontologies/video-game-ontology#EricBarone"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</video-game-ontology:ageRating>
+        <video-game-ontology:description>Inherit a farm, grow crops, raise animals and build relationships in a cosy village.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/413150/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Stardew Valley</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">14.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-26T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Portal">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Valve"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Puzzle"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#SciFi"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:inFranchise rdf:resource="http://example.org/ontologies/video-game-ontology#PortalFranchise"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</video-game-ontology:ageRating>
+        <video-game-ontology:description>A first-person puzzle game built around a gun that opens linked portals between two surfaces.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/400/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Portal</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2007-10-10T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Portal2">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Valve"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Puzzle"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#SciFi"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Adventure"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:inFranchise rdf:resource="http://example.org/ontologies/video-game-ontology#PortalFranchise"/>
+        <video-game-ontology:sequelOf rdf:resource="http://example.org/ontologies/video-game-ontology#Portal"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</video-game-ontology:ageRating>
+        <video-game-ontology:description>The sequel to Portal adds new mechanics, a longer story and co-operative puzzle-solving.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/620/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Portal 2</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-04-19T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#HalfLife2">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Valve"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#SciFi"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:inFranchise rdf:resource="http://example.org/ontologies/video-game-ontology#HalfLifeFranchise"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>Gordon Freeman returns to a world under alien occupation in this physics-driven first-person shooter.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/220/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Half-Life 2</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-11-16T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#HalfLifeAlyx">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Valve"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#SciFi"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:inFranchise rdf:resource="http://example.org/ontologies/video-game-ontology#HalfLifeFranchise"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#HalfLife2"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>A virtual-reality Half-Life story following Alyx Vance as she fights the Combine.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/546560/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Half-Life: Alyx</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">59.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-23T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Doom2016">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#IdSoftware"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation4"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxOne"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:inFranchise rdf:resource="http://example.org/ontologies/video-game-ontology#DoomFranchise"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>A fast, brutal reboot that sends the Doom Slayer through demon-infested Mars.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/379720/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>DOOM (2016)</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">19.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-05-13T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#DoomEternal">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#IdSoftware"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation4"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxOne"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#NintendoSwitch"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:inFranchise rdf:resource="http://example.org/ontologies/video-game-ontology#DoomFranchise"/>
+        <video-game-ontology:directedBy rdf:resource="http://example.org/ontologies/video-game-ontology#HugoMartin"/>
+        <video-game-ontology:sequelOf rdf:resource="http://example.org/ontologies/video-game-ontology#Doom2016"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>The Doom Slayer fights to stop Hell's invasion of Earth in this faster, more acrobatic sequel.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/782330/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>DOOM Eternal</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-20T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Witcher3">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#CDProjektRed"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Fantasy"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Adventure"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation4"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxOne"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#NintendoSwitch"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:directedBy rdf:resource="http://example.org/ontologies/video-game-ontology#KonradTomaszkiewicz"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>Hunt monsters and chase a missing ward across a huge, morally grey open world as Geralt of Rivia.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/292030/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>The Witcher 3: Wild Hunt</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-05-18T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#Cyberpunk2077">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#CDProjektRed"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#SciFi"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation5"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#XboxSeriesS"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#Witcher3"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>An open-world action RPG set in Night City, where mercenary V chases a chip that holds the key to immortality.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Cyberpunk 2077</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">59.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-12-10T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#DiscoElysium">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#ZAUM"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#RPG"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Adventure"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PlayStation5"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#NintendoSwitch"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Singleplayer"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>A dialogue-driven detective RPG where your own skills argue with you as you solve a murder.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/632470/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Disco Elysium</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.99</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-10-15T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://example.org/ontologies/video-game-ontology#CounterStrike2">
+        <rdf:type rdf:resource="http://example.org/ontologies/video-game-ontology#VideoGame"/>
+        <video-game-ontology:developedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Valve"/>
+        <video-game-ontology:distributedBy rdf:resource="http://example.org/ontologies/video-game-ontology#Steam"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Shooter"/>
+        <video-game-ontology:hasGenre rdf:resource="http://example.org/ontologies/video-game-ontology#Action"/>
+        <video-game-ontology:availableOn rdf:resource="http://example.org/ontologies/video-game-ontology#PC"/>
+        <video-game-ontology:hasGamemode rdf:resource="http://example.org/ontologies/video-game-ontology#Multiplayer"/>
+        <video-game-ontology:similarTo rdf:resource="http://example.org/ontologies/video-game-ontology#Valorant"/>
+        <video-game-ontology:ageRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17</video-game-ontology:ageRating>
+        <video-game-ontology:description>The free-to-play competitive tactical shooter that continues Counter-Strike on the Source 2 engine.</video-game-ontology:description>
+        <video-game-ontology:gameImage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdn.cloudflare.steamstatic.com/steam/apps/730/library_600x900.jpg</video-game-ontology:gameImage>
+        <video-game-ontology:gameTitle>Counter-Strike 2</video-game-ontology:gameTitle>
+        <video-game-ontology:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</video-game-ontology:price>
+        <video-game-ontology:releaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-09-27T00:00:00Z</video-game-ontology:releaseDate>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

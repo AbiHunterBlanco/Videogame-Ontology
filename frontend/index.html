@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Video Game Ontology</title>
+<style>
+:root{--bg:#0b0e13;--panel:#141a22;--panel2:#1b2430;--line:#263244;--blue:#1a9fff;--blue2:#66c0f4;--text:#c7d5e0;--muted:#8793a1;--glow:0 0 0 1px var(--blue),0 8px 28px rgba(26,159,255,.18)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:radial-gradient(1200px 500px at 70% -10%,#10253a 0,transparent 60%),var(--bg);color:var(--text);font:14px/1.5 "Motiva Sans",Inter,system-ui,"Segoe UI",sans-serif}
+button,input,select{font:inherit;color:inherit}
+header{position:sticky;top:0;z-index:20;display:flex;gap:16px;align-items:center;padding:12px 28px;background:rgba(14,18,25,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{font-weight:800;letter-spacing:.06em;color:var(--blue2);white-space:nowrap;text-transform:uppercase}
+.search{position:relative;flex:1;max-width:460px;margin-left:auto}
+.search input{width:100%;padding:9px 16px;border-radius:20px;border:1px solid var(--line);background:#0e131a}
+input:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(26,159,255,.25)}
+.dd{position:absolute;top:44px;left:0;right:0;background:var(--panel);border:1px solid var(--blue);border-radius:10px;overflow:hidden;box-shadow:var(--glow)}
+.dd button{display:flex;justify-content:space-between;width:100%;padding:9px 14px;background:none;border:0;cursor:pointer;text-align:left}
+.dd button:hover{background:var(--panel2)}
+.badge{font-size:11px;padding:1px 8px;border-radius:10px;border:1px solid var(--blue);color:var(--blue2)}
+.btn{padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--panel);cursor:pointer;transition:.15s}
+.btn:hover,.btn.on{border-color:var(--blue);color:var(--blue2)}
+.btn.on{background:rgba(26,159,255,.12)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#04121f;font-weight:600}
+.layout{display:grid;grid-template-columns:1fr 320px;gap:24px;max-width:1500px;margin:auto;padding:20px 28px 60px}
+h2{margin:0 0 4px;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue2)}
+.sub{color:var(--muted);margin-bottom:14px}
+.filters{position:relative;margin-bottom:20px;padding:18px;border-radius:14px;border:1px solid #1d4a73;background:linear-gradient(180deg,#0f2539 0,#0b1722 100%);box-shadow:0 14px 40px rgba(26,159,255,.14),inset 0 1px 0 rgba(102,192,244,.18);display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;animation:drop .18s ease-out}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}}
+.filters label{display:flex;flex-direction:column;gap:6px;min-width:0;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue2)}
+.filters label span{color:var(--muted);font-weight:400;letter-spacing:0;text-transform:none}
+select,.filters input[type=number]{width:100%;padding:9px 12px;border-radius:8px;border:1px solid #1f4e79;background-color:#0a1420;color:var(--text);text-transform:none;letter-spacing:0;font-weight:400;transition:.15s}
+select{appearance:none;-webkit-appearance:none;padding-right:34px;cursor:pointer;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' fill='none' stroke='%2366c0f4' stroke-width='2' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 12px center}
+select:hover,.filters input[type=number]:hover{border-color:var(--blue)}
+option{background:#0a1420;color:var(--text)}
+input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer}
+.chips{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;padding-top:14px;border-top:1px solid #1d4a73}
+.chip{padding:4px 13px;border-radius:14px;border:1px solid #1f4e79;background:#0a1420;color:var(--blue2);cursor:pointer;font-size:12px;transition:.15s}
+.chip:hover{border-color:var(--blue);box-shadow:0 0 10px rgba(26,159,255,.3)}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#04121f;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.card{position:relative;border-radius:10px;overflow:hidden;background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:.18s}
+.card:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:var(--glow)}
+.art{position:relative;overflow:hidden;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;padding:12px;text-align:center;font-weight:700;background:linear-gradient(160deg,#1b3350,#0e1620)}
+.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .info{position:relative;padding:9px 12px;background:var(--panel);height:62px}
+.card .t{font-weight:700;font-size:13px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .m{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}
+.card .m span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.card .m span:last-child{flex:none}
+.save{position:absolute;top:8px;right:8px;z-index:2;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:rgba(11,14,19,.8);cursor:pointer;font-size:15px;line-height:1}
+.save:hover,.save.on{border-color:var(--blue);color:var(--blue2)}
+.side{position:sticky;top:76px;align-self:start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.rec{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line);cursor:pointer}
+.rec img{width:46px;height:64px;object-fit:cover;border-radius:6px;background:var(--panel2)}
+.rec b{display:block}.rec small{color:var(--blue2)}
+.empty{color:var(--muted)}
+.bar+.sec{padding-top:20px}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(3,6,10,.78);overflow:auto;padding:4vh 16px}
+.sheet{max-width:1000px;margin:auto;background:var(--panel);border:1px solid var(--blue);border-radius:14px;box-shadow:var(--glow);overflow:hidden}
+.bar{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line)}
+.detail{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;padding:20px}
+.video{position:relative;aspect-ratio:16/9;background:#05080c center/cover;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{width:68px;height:68px;border-radius:50%;border:2px solid var(--blue2);background:rgba(11,14,19,.7);color:var(--blue2);font-size:26px;cursor:pointer}
+.play:hover{background:var(--blue);color:#04121f}
+h1{margin:0 0 6px;font-size:26px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:12px 0}.facts dt{color:var(--muted)}.facts dd{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.tag{padding:2px 10px;border-radius:12px;border:1px solid var(--blue);color:var(--blue2);background:none;cursor:pointer;font-size:12px}
+.tag:hover{background:rgba(26,159,255,.15)}
+.sec{padding:0 20px 20px}.sec h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue2)}
+.reasons{display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 10px 12px;text-align:center}
+.reasons span{max-width:100%;padding:2px 9px;border-radius:10px;border:1px solid #1f4e79;background:#0a1420;color:var(--blue2);font-size:11px;line-height:1.35;overflow-wrap:anywhere}
+.graph{background:#0e131a;border:1px solid var(--line);border-radius:10px}
+.graph text{fill:var(--text);font-size:11px;text-anchor:middle;paint-order:stroke;stroke:#0e131a;stroke-width:3px;stroke-linejoin:round}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;font-size:12px;color:var(--muted)}.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.ytlink{display:inline-block;margin-top:8px;color:var(--blue2);text-decoration:none;font-size:13px}.ytlink:hover{text-decoration:underline}.graph line{stroke:var(--line)}
+@media(max-width:900px){.layout,.detail{grid-template-columns:1fr}.side{position:static}header{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🎮 Video Game Ontology</div>
+  <div class="search"><input id="q" type="search" placeholder="Search games, franchises, developers, directors…" autocomplete="off"><div id="dd" class="dd" hidden></div></div>
+  <button class="btn on" id="tabExplore">Explore</button>
+  <button class="btn" id="tabLib">My Library <b id="libN">0</b></button>
+  <button class="btn" id="fbtn">Filters</button>
+</header>
+<div class="layout">
+  <main>
+    <section id="filters" class="filters" hidden>
+      <label>Max price <span id="priceV"></span><input id="price" type="range" min="0" step="5"></label>
+      <label>Max age rating <select id="age"><option value="">Any</option><option>10</option><option>13</option><option>17</option></select></label>
+      <label>Released from <input id="yFrom" type="number" placeholder="e.g. 2015"></label>
+      <label>Released to <input id="yTo" type="number" placeholder="e.g. 2024"></label>
+      <label>Platform <select id="platform"></select></label>
+      <label>Game mode <select id="mode"></select></label>
+      <label>Developer <select id="dev"></select></label>
+      <label>Sort by <select id="sort"><option value="az">A–Z</option><option value="new">Newest</option><option value="old">Oldest</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select></label>
+      <div class="chips" id="genres"></div>
+      <button class="btn" id="reset" style="grid-column:1/-1;justify-self:end">Reset filters</button>
+    </section>
+    <h2 id="heading">Explore games</h2><div class="sub" id="count"></div>
+    <div class="grid" id="grid"></div>
+  </main>
+  <aside class="side"><h2>Personalised recommendations</h2><div id="recs" class="empty">Add games to your library for recommendations based on the ontology.</div></aside>
+</div>
+<div class="modal" id="modal" hidden><div class="sheet" id="sheet"></div></div>
+<script>
+const $ = (s) => document.querySelector(s);
+const el = (t, c, ...k) => { const e = document.createElement(t); if (c) e.className = c; e.append(...k.filter((x) => x != null)); return e; };
+const api = async (p, o) => { const r = await fetch(p, o); if (!r.ok) throw new Error(p + " " + r.status); return r.json(); };
+const money = (p) => (p ? "$" + p.toFixed(2) : "Free");
+const year = (g) => (g.releaseDate ? +g.releaseDate.slice(0, 4) : null);
+
+let games = [], view = "explore", trail = [], selGenres = new Set();
+let lib = new Set(); try { lib = new Set(JSON.parse(localStorage.getItem("oge-library") || "[]")); } catch {}
+const saveLib = () => { try { localStorage.setItem("oge-library", JSON.stringify([...lib])); } catch {} };
+const toggle = (id) => { lib.has(id) ? lib.delete(id) : lib.add(id); saveLib(); refresh(); if (!$("#modal").hidden && trail.length) trail.at(-1)(); };
+
+// ---------- cards ----------
+function card(g) {
+  const art = el("div", "art", g.title);
+  if (g.image) { const i = el("img"); i.src = g.image; i.alt = g.title; i.loading = "lazy"; i.referrerPolicy = "no-referrer"; i.onerror = () => i.remove(); art.append(i); }
+  const s = el("button", "save" + (lib.has(g.name) ? " on" : ""), lib.has(g.name) ? "✓" : "+");
+  s.title = lib.has(g.name) ? "Remove from library" : "Add to library";
+  s.onclick = (e) => { e.stopPropagation(); toggle(g.name); };
+  const c = el("div", "card", s, art, el("div", "info", el("div", "t", g.title), el("div", "m", el("span", "", g.genres.slice(0, 2).join(", ")), el("span", "", money(g.price)))));
+  c.onclick = () => go(() => openGame(g.name));
+  return c;
+}
+
+// ---------- explore / filters ----------
+function filtered() {
+  const f = { price: +$("#price").value, age: +$("#age").value, from: +$("#yFrom").value, to: +$("#yTo").value,
+    plat: $("#platform").value, mode: $("#mode").value, dev: $("#dev").value, q: $("#q").value.toLowerCase() };
+  let out = games.filter((g) => (view === "library" ? lib.has(g.name) : true)
+    && g.price <= f.price && (!f.age || g.ageRating <= f.age)
+    && (!f.from || (year(g) && year(g) >= f.from)) && (!f.to || (year(g) && year(g) <= f.to))
+    && (!f.plat || g.platforms.includes(f.plat)) && (!f.mode || g.gamemodes.includes(f.mode)) && (!f.dev || g.developers.includes(f.dev))
+    && [...selGenres].every((x) => g.genres.includes(x)));
+  const by = { az: (a, b) => a.title.localeCompare(b.title), new: (a, b) => (b.releaseDate || "").localeCompare(a.releaseDate || ""),
+    old: (a, b) => (a.releaseDate || "9").localeCompare(b.releaseDate || "9"), lo: (a, b) => a.price - b.price, hi: (a, b) => b.price - a.price };
+  return out.sort(by[$("#sort").value]);
+}
+function refresh() {
+  const list = filtered();
+  $("#heading").textContent = view === "library" ? "My library" : "Explore games";
+  $("#count").textContent = `${list.length} game${list.length === 1 ? "" : "s"}`;
+  $("#grid").replaceChildren(...(list.length ? list.map(card) : [el("p", "empty", view === "library" ? "Your library is empty. Press + on any game to add it." : "No games match those filters.")]));
+  $("#libN").textContent = lib.size; updateFbtn(); loadRecs();
+}
+async function loadRecs() {
+  const box = $("#recs");
+  if (!lib.size) { box.className = "empty"; box.textContent = "Add games to your library for recommendations based on the ontology."; return; }
+  const recs = await api("/recommendations/personalised", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ library: [...lib], max_age: +$("#age").value || undefined, limit: 6 }) });
+  box.className = "";
+  box.replaceChildren(...(recs.length ? recs.map((r) => { const d = el("div", "rec", r.image ? Object.assign(el("img"), { src: r.image, alt: "", referrerPolicy: "no-referrer", onerror() { this.style.visibility = "hidden"; } }) : null, el("div", "", el("b", "", r.display_name), el("small", "", r.reasons[0]))); d.onclick = () => go(() => openGame(r.name)); return d; }) : [el("p", "empty", "Nothing new to suggest yet.")]));
+}
+function setupFilters() {
+  const uniq = (k) => [...new Set(games.flatMap((g) => g[k]))].sort();
+  const fill = (id, label, vals) => $(id).replaceChildren(new Option(label, ""), ...vals.map((v) => new Option(v, v)));
+  fill("#platform", "Any", uniq("platforms")); fill("#mode", "Any", uniq("gamemodes")); fill("#dev", "Any", uniq("developers"));
+  const max = Math.ceil(Math.max(...games.map((g) => g.price)) / 5) * 5; $("#price").max = max; $("#price").value = max;
+  $("#genres").replaceChildren(...uniq("genres").map((n) => { const c = el("span", "chip", n); c.onclick = () => { selGenres.has(n) ? selGenres.delete(n) : selGenres.add(n); c.classList.toggle("on"); refresh(); }; return c; }));
+  const price = () => ($("#priceV").textContent = "· up to " + money(+$("#price").value));
+  price(); $("#price").addEventListener("input", price);
+  document.querySelectorAll("#filters select,#filters input").forEach((i) => i.addEventListener("input", refresh));
+  $("#reset").onclick = () => { document.querySelectorAll("#filters select,#filters input[type=number]").forEach((i) => (i.value = "")); $("#price").value = max; $("#sort").value = "az"; selGenres.clear(); document.querySelectorAll(".chip").forEach((c) => c.classList.remove("on")); price(); refresh(); };
+}
+
+// ---------- modal navigation ----------
+function go(fn) { trail.push(fn); fn(); }
+function show(...kids) {
+  const back = trail.length > 1 ? el("button", "btn", "← Back") : el("span");
+  back.onclick = () => { trail.pop(); trail.at(-1)(); };
+  const x = el("button", "btn", "✕ Close"); x.onclick = closeModal;
+  $("#sheet").replaceChildren(el("div", "bar", back, x), ...kids); $("#modal").hidden = false; $("#modal").scrollTop = 0; document.body.style.overflow = "hidden";
+}
+function closeModal() { $("#modal").hidden = true; $("#sheet").replaceChildren(); trail = []; document.body.style.overflow = ""; }
+$("#modal").addEventListener("click", (e) => { if (e.target.id === "modal") closeModal(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+
+const ytId = (u) => { const m = u && u.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/); return m && m[1]; };
+function trailer(d) {
+  const id = ytId(d.trailer), box = el("div", "video");
+  if (!id) {
+    const a = el("a", "btn primary", "▶ Find trailer on YouTube"); a.target = "_blank"; a.rel = "noopener";
+    a.href = "https://www.youtube.com/results?search_query=" + encodeURIComponent(d.title + " official trailer");
+    if (d.image) box.style.backgroundImage = `url("${d.image}")`; box.append(a); return el("div", "", box);
+  }
+  box.style.backgroundImage = `url("https://img.youtube.com/vi/${id}/hqdefault.jpg")`;
+  const p = el("button", "play", "▶"); p.title = "Play trailer";
+  p.onclick = () => {
+    const f = el("iframe"); f.title = d.title + " trailer";
+    f.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&playsinline=1&origin=${encodeURIComponent(location.origin)}`;
+    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    f.referrerPolicy = "strict-origin-when-cross-origin"; f.allowFullscreen = true; box.replaceChildren(f);
+  };
+  box.append(p);
+  const a = el("a", "ytlink", "Open on YouTube ↗"); a.href = "https://www.youtube.com/watch?v=" + id; a.target = "_blank"; a.rel = "noopener";
+  return el("div", "", box, a);
+}
+function tags(list, type, kind) {
+  return el("div", "tags", ...list.map((x) => {
+    const b = el("button", "tag", x.name); b.title = type ? "View " + x.name : "Filter by " + x.name;
+    b.onclick = () => (type ? go(() => openEntity(type, x.id)) : applyFilter(kind, x.name)); return b;
+  }));
+}
+function applyFilter(kind, val) {
+  closeModal();
+  if (kind === "genre") { selGenres = new Set([val]); document.querySelectorAll(".chip").forEach((c) => c.classList.toggle("on", c.textContent === val)); }
+  else $("#" + kind).value = val;
+  $("#filters").hidden = false; tab("explore"); scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function graph(d) {
+  const NS = "http://www.w3.org/2000/svg", mk = (t, a, txt) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; return e; };
+  const colors = { Genre: "#66c0f4", Developer: "#1a9fff", Franchise: "#9b8cff", Director: "#4cd3a8", Platform: "#8793a1" };
+  const nodes = Object.entries(colors).flatMap(([t, c]) => d.entities[t].map((n) => ({ ...n, t, c }))).slice(0, 14);
+  const W = 720, H = 360, cx = W / 2, cy = H / 2, svg = mk("svg", { viewBox: `0 0 ${W} ${H}`, class: "graph", width: "100%" });
+  nodes.forEach((n, i) => { const a = (i / nodes.length) * 6.283 - 1.57; n.x = cx + 270 * Math.cos(a); n.y = cy + 130 * Math.sin(a); svg.append(mk("line", { x1: cx, y1: cy, x2: n.x, y2: n.y })); });
+  nodes.forEach((n) => svg.append(mk("circle", { cx: n.x, cy: n.y, r: 7, fill: n.c }), mk("text", { x: n.x, y: n.y + (n.y > cy ? 22 : -13) }, n.name.length > 22 ? n.name.slice(0, 21) + "…" : n.name)));
+  // centre node: wrap the title onto up to two lines and size the ellipse to fit it
+  const words = d.title.split(" "), lines = [""];
+  for (const w of words) { const cur = lines.at(-1); if (cur && (cur + " " + w).length > 14) lines.push(w); else lines[lines.length - 1] = (cur + " " + w).trim(); }
+  const shown = lines.slice(0, 2).map((l, i) => (i === 1 && lines.length > 2 ? l.slice(0, 12) + "…" : l));
+  const rx = Math.max(52, Math.max(...shown.map((l) => l.length)) * 4.2 + 26), ry = shown.length > 1 ? 34 : 26;
+  svg.append(mk("ellipse", { cx, cy, rx, ry, fill: "#0b0e13", stroke: "#1a9fff", "stroke-width": 2 }));
+  shown.forEach((l, i) => svg.append(mk("text", { x: cx, y: cy + 4 + (i - (shown.length - 1) / 2) * 15, style: "font-weight:700;font-size:13px;stroke:none" }, l)));
+  const legend = el("div", "legend", ...Object.entries(colors).filter(([t]) => nodes.some((n) => n.t === t)).map(([t, c]) => { const i = el("i"); i.style.background = c; return el("span", "", i, t); }));
+  return el("div", "", svg, legend);
+}
+
+async function openGame(id) {
+  const d = await api("/node/Game/" + encodeURIComponent(id)), E = d.entities;
+  const own = el("button", "btn " + (lib.has(id) ? "on" : "primary"), lib.has(id) ? "✓ In your library" : "+ Add to library"); own.onclick = () => toggle(id);
+  const facts = el("dl", "facts", ...[["Price", d.price], ["Released", d.releaseDate], ["Age rating", d.ageRating ? d.ageRating + "+" : "All ages"], ["Player rating", d.playerRating]].flatMap(([k, v]) => [el("dt", "", k), el("dd", "", String(v))]));
+  const right = el("div", "", el("h1", "", d.title), own, facts, el("p", "", d.description),
+    el("h3", "", "Genres"), tags(E.Genre, null, "genre"), el("h3", "", "Developer"), tags(E.Developer, "Developer"),
+    E.Franchise.length ? el("h3", "", "Franchise") : null, E.Franchise.length ? tags(E.Franchise, "Franchise") : null,
+    E.Director.length ? el("h3", "", "Directed by") : null, E.Director.length ? tags(E.Director, "Director") : null,
+    el("h3", "", "Platforms"), tags(E.Platform, null, "platform"));
+  const recs = d.recommendations.length ? el("div", "grid", ...d.recommendations.map((r) => { const g = games.find((x) => x.name === r.name); const c = g ? card(g) : el("div"); c.append(el("div", "reasons", ...r.reasons.slice(0, 2).map((t) => el("span", "", t)))); return c; })) : el("p", "empty", "No related games in the ontology yet.");
+  show(el("div", "detail", trailer(d), right),
+    el("div", "sec", el("h3", "", "Similar games · inferred from the ontology"), recs),
+    el("div", "sec", el("h3", "", "Knowledge graph"), graph(d)));
+}
+async function openEntity(type, id) {
+  const d = await api(`/node/${type}/${encodeURIComponent(id)}`);
+  const label = { Director: "games directed", Franchise: "games in this franchise", Developer: "games developed" }[type];
+  show(el("div", "sec", el("span", "badge", type), el("h1", "", d.title), d.comment ? el("p", "empty", d.comment) : null,
+    el("h3", "", `${d.related_games.length} ${label}`), el("div", "grid", ...d.related_games.map(card))));
+}
+
+// ---------- search ----------
+let timer;
+$("#q").addEventListener("input", () => {
+  clearTimeout(timer);
+  timer = setTimeout(async () => {
+    const q = $("#q").value.trim(), dd = $("#dd");
+    refresh();
+    if (!q) { dd.hidden = true; return; }
+    const res = await api("/search?q=" + encodeURIComponent(q));
+    dd.replaceChildren(...(res.length ? res.map((r) => { const b = el("button", "", el("span", "", r.name), el("span", "badge", r.type)); b.onclick = () => { dd.hidden = true; go(() => (r.type === "Game" ? openGame(r.id) : openEntity(r.type, r.id))); }; return b; }) : [el("div", "empty", " No results")]));
+    dd.hidden = false;
+  }, 150);
+});
+document.addEventListener("click", (e) => { if (!e.target.closest(".search")) $("#dd").hidden = true; });
+
+// ---------- tabs & boot ----------
+const tab = (v) => { view = v; $("#tabExplore").classList.toggle("on", v === "explore"); $("#tabLib").classList.toggle("on", v === "library"); refresh(); };
+$("#tabExplore").onclick = () => tab("explore"); $("#tabLib").onclick = () => tab("library");
+const activeCount = () => [+$("#price").value < +$("#price").max, $("#age").value, $("#yFrom").value, $("#yTo").value, $("#platform").value, $("#mode").value, $("#dev").value].filter(Boolean).length + selGenres.size;
+function updateFbtn() { const n = activeCount(); $("#fbtn").textContent = n ? `Filters · ${n}` : "Filters"; $("#fbtn").classList.toggle("on", !$("#filters").hidden || n > 0); }
+$("#fbtn").onclick = () => { $("#filters").hidden = !$("#filters").hidden; updateFbtn(); };
+api("/games").then((g) => { games = g; setupFilters(); refresh(); }).catch((e) => ($("#grid").textContent = "Could not reach the API: " + e.message));
+</script>
+</body>
+</html>
